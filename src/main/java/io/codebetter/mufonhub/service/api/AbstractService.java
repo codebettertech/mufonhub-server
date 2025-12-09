@@ -1,4 +1,4 @@
-package io.codebetter.mufonhub.service;
+package io.codebetter.mufonhub.service.api;
 
 import io.smallrye.mutiny.Uni;
 

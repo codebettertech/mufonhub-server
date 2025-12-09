@@ -35,12 +35,12 @@ public class UserService implements UserServiceApi {
     @Override
     public Uni<User> create(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.persist(user).map(v -> v);
+        return userRepository.persistOrUpdate(user);
     }
 
     @Override
     public Uni<User> update(String id, Object dto) {
-        return Panache.withTransaction(() -> userRepository.updateUser(id,(UserDto) dto));
+        return userRepository.updateUser(id,(UserDto) dto);
     }
 
     @Override
